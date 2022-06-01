@@ -56,13 +56,11 @@ const MyNumbers = () => {
     });
   };
 
-  const deleteContact = useCallback(
-    id => {
-      const del = contacts.filter(contact => contact.id !== id);
-      setContacts(del);
-    },
-    [contacts, setContacts]
-  );
+  const deleteContact = contactId => {
+    setContacts(prevState =>
+      prevState.filter(contact => contact.id !== contactId)
+    );
+  };
 
   const changeFilter = useCallback(
     e => {
